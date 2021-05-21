@@ -3,48 +3,92 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.myapp.entities.zied;
+package Entitiesyassin;
 
 /**
  *
- * @author admin
+ * @author Asus
  */
 public class clinique {
-     private int idclinique;
-              private String nomclinique;
+     private int id;
+    private String adresse;
+    private int tel;
+    private String nom, email;
+    private String img;
+  private String specialite;
+
+    public clinique(int id, String adresse, int tel, String nom,  String img, String specialite,String email) {
+        
+        this.id = id;
+        this.adresse = adresse;
+        this.tel = tel;
+        this.nom = nom;
+      this.img = img;
+        this.specialite = specialite;
+        this.email = email;
+    
+    }
 
     public clinique() {
+        
     }
 
-    public clinique(int idclinique, String nomclinique) {
-        this.idclinique = idclinique;
-        this.nomclinique = nomclinique;
+    public int getId() {
+        return id;
     }
 
-    public clinique(String nomclinique) {
-        this.nomclinique = nomclinique;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public int getTel() {
+        return tel;
+    }
+
+    public void setTel(int tel) {
+        this.tel = tel;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public String getSpecialite() {
+        return specialite;
+    }
+
+    public void setSpecialite(String specialite) {
+        this.specialite = specialite;
     }
 
     
-    public int getIdclinique() {
-        return idclinique;
-    }
-
-    public String getNomclinique() {
-        return nomclinique;
-    }
-
-    public void setIdclinique(int idclinique) {
-        this.idclinique = idclinique;
-    }
-
-    public void setNomclinique(String nomclinique) {
-        this.nomclinique = nomclinique;
-    }
-
-    @Override
-    public String toString() {
-        return "clinique{" + "idclinique=" + idclinique + ", nomclinique=" + nomclinique + '}';
-    }
-
+  
 }

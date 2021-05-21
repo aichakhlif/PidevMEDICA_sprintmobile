@@ -3,11 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.myapp.gui.linda;
+package gui;
 
-import com.mycompany.myapp.gui.zied.*;
-import com.mycompany.myapp.gui.*;
-import gui.*;
+import ServiceMedecin.MedecinService;
 import com.codename1.charts.ChartComponent;
 import com.codename1.charts.models.CategorySeries;
 import com.codename1.charts.renderers.DefaultRenderer;
@@ -20,9 +18,6 @@ import com.codename1.ui.Form;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.util.Resources;
 import com.mycompany.gui.ProfileForm;
-import com.mycompany.myapp.services.ServiceRendezVous;
-import com.mycompany.myapp.services.ServiceReservation;
-import com.mycompany.myapp.services.zied.ServiceArticle;
 
 /**
  *
@@ -38,7 +33,7 @@ private DefaultRenderer buildCategoryRenderer(int[] colors) {
     renderer.setLegendTextSize(30);
     //renderer.setMargins(new int[]{20, 30, 15, 0});
     int k = 0;
-    ServiceRendezVous ms = new ServiceRendezVous();
+    MedecinService ms = new MedecinService();
     String [] titles = ms.getStatTitles();
     for( k=0; k<titles.length; k++)
     { if(titles[k]==null){
@@ -63,7 +58,7 @@ private DefaultRenderer buildCategoryRenderer(int[] colors) {
 protected CategorySeries buildCategoryDataset(String title, double[] values) {
     CategorySeries series = new CategorySeries(title);
     int k = 0;
-    ServiceRendezVous ms = new ServiceRendezVous();
+    MedecinService ms = new MedecinService();
     String [] titles = ms.getStatTitles();
     for( k=0; k<values.length; k++)
     { if(titles[k]==null){
@@ -79,7 +74,7 @@ protected CategorySeries buildCategoryDataset(String title, double[] values) {
 
 public Form createPieChartForm() {
     // Generate the values
-    ServiceRendezVous ms = new ServiceRendezVous();
+    MedecinService ms = new MedecinService();
     double[] values = ms.getStatValues();
 
     
@@ -94,14 +89,14 @@ public Form createPieChartForm() {
     SimpleSeriesRenderer r = renderer.getSeriesRendererAt(0);
     renderer.setLabelsColor(ColorUtil.BLACK);
     // Create the chart ... pass the values and renderer to the chart object.
-    PieChart chart = new PieChart(buildCategoryDataset("Nombre des RDV par medecin ", values), renderer);
+    PieChart chart = new PieChart(buildCategoryDataset("Nombre des medecins Par specialité ", values), renderer);
   
     // Wrap the chart in a Component so we can add it to a form
     ChartComponent c = new ChartComponent(chart);
     
     // Create a form and show it.
     Form f = new Form();
-    f.add(new SpanLabel("Nombre des RDV par medecin"));
+    f.add(new SpanLabel("Nombre des medecins Par specialité"));
     f.add(c);
     return f;
  
